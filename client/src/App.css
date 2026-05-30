@@ -1,38 +1,74 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+}
+
 .App {
-  text-align: center;
+    min-height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+    background-color: #282c34;
+    color: white;
+    padding: 2rem;
+    text-align: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.card {
+    background: white;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 2px 4px rgba(0,0,0,0.1);
 }
 
-.App-link {
-  color: #61dafb;
+textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 1rem;
+    margin-top: 1rem;
+
+    resize: vertical;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="file"] {
+    margin-top: 1rem;
+}
+
+.analyze-btn {
+    width: 100%;
+
+    padding: 1rem;
+
+    border: none;
+
+    background-color: #0078ff;
+    color: white;
+
+    border-radius: 8px;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+
+    margin-bottom: 1.5rem;
+}
+
+.analyze-btn:hover {
+    opacity: 0.9;
+}
+
+ul {
+    padding-left: 1.5rem;
 }
