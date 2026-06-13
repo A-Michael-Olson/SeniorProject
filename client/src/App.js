@@ -12,29 +12,36 @@ function App() {
     const [jobDescription, setJobDescription] = useState('');
     const [results, setResults] = useState(null);
 
-    const analyzeResume = async () => {
+const analyzeResume = async () => {
 
-        try {
+    if (!resumeFile) {
+        alert("Please upload a resume.");
+        return;
+    }
 
-            const response = await fetch('http://localhost:5000/analyze', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    jobDescription: jobDescription,
-                    fileName: resumeFile?.name || "No File"
-                })
-            });
+    try {
 
-            const data = await response.json();
+        const formData = new FormData();
 
-            setResults(data);
+        formData.append("resume", resumeFile);
+        formData.append("jobDescription", jobDescription);
 
-        } catch (error) {
-            console.error(error);
-        }
-    };
+        const response = await fetch(
+            "http://localhost:5000/analyze",
+            {
+                method: "POST",
+                body: formData
+            }
+        );
+
+        const data = await response.json();
+
+        setResults(data);
+
+    } catch (error) {
+        console.error(error);
+    }
+};
 
     return (
         <div className="App">

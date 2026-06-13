@@ -7,28 +7,24 @@ function Results({ results }) {
     return (
         <div className="card">
 
-            <h2>Analysis Results</h2>
+            <h2>Extracted Resume Text</h2>
 
-            <h3>Strengths</h3>
-            <ul>
-                {results.strengths.map((item, index) => (
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
+            <p>
+                <strong>File:</strong>
+                {" "}
+                {results.fileName}
+            </p>
 
-            <h3>Weaknesses</h3>
-            <ul>
-                {results.weaknesses.map((item, index) => (
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
+            <hr />
 
-            <h3>Suggestions</h3>
-            <ul>
-                {results.suggestions.map((item, index) => (
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
+            <pre
+                style={{
+                    whiteSpace: "pre-wrap",
+                    textAlign: "left"
+                }}
+            >
+                {results.extractedText}
+            </pre>
 
         </div>
     );
